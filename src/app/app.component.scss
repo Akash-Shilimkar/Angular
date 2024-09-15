@@ -1,0 +1,33 @@
+@import "src/styles";
+
+section[role="search"] {
+  @extend .card, .flat;
+
+  .form-group {
+    ul.errors {
+      li {
+        padding-left: 22ex;
+      }
+    }
+  }
+}
+
+section[role="main"] {
+  @extend .card;
+
+  article {
+    @extend .card-text;
+
+    table {
+      @extend .mb-0;
+
+      tbody {
+        tr:last-child {
+          td {
+            border-bottom: none !important;
+          }
+        }
+      }
+    }
+  }
+}

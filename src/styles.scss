@@ -1,0 +1,65 @@
+@import "node_modules/h8k-design/lib/index";
+
+$viewport-grid-size: 25;
+
+app-root {
+  @extend .layout-column, .align-items-center, .mx-auto, .pa-#{$viewport-grid-size * 2};
+
+  section {
+    &:not(:last-of-type) {
+      @extend .mb-#{$viewport-grid-size};
+    }
+
+    &[role="alert"] {
+      @extend .alert, .mb-#{$viewport-grid-size}, .px-#{$viewport-grid-size};
+    }
+  }
+
+  ul, ol {
+    @extend .ml-0;
+  }
+
+  .form {
+    @extend .card;
+  }
+
+  .form-group {
+    @extend .card-text, .layout-column, .px-#{$viewport-grid-size}, .pt-#{$viewport-grid-size}, .pb-0;
+
+    label {
+      @extend .caption, .mb-5;
+
+      &:has(+ input[required])::after {
+        @extend .error-text;
+
+        content: '*';
+      }
+    }
+
+    input {
+      @extend .large;
+    }
+
+    ul.errors {
+      @extend .form-hint, .error-text, .mb-0, .pl-0;
+
+      list-style-type: none;
+    }
+  }
+
+  .form-actions {
+    @extend .card-actions, .mt-#{$viewport-grid-size}, .px-#{$viewport-grid-size}, .pt-0, .pb-#{$viewport-grid-size};
+
+    button {
+      @extend .my-0;
+    }
+
+    button[type="submit"] {
+      @extend .flat, .ml-0;
+    }
+
+    button[type="reset"] {
+      @extend .icon-only, .text, .danger;
+    }
+  }
+}
